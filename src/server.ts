@@ -1,5 +1,7 @@
 import express, { NextFunction, Request, Response, urlencoded } from 'express'
+import 'express-async-errors'
 import 'reflect-metadata'
+import '../src/http/tsyringe'
 import { AppError } from './errors/AppError'
 import { routes } from './routes'
 
