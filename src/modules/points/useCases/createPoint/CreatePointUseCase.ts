@@ -9,9 +9,14 @@ export class CreatePointUseCase {
     private registerUserPoints: IRegisterUserPoints
   ) {}
 
-  async execute ({ name, section, date, hour }: IPoint) {
-    const point = await this.registerUserPoints.createPoint({ name, section, date, hour })
+  async execute ({ name, date, hour }: IPoint) {
+    const section = '001'
 
-    return point
+    try {
+      const point = await this.registerUserPoints.createPoint({ name, section, date, hour })
+      return point
+    } catch (error) {
+      console.log(error)
+    }
   }
 }

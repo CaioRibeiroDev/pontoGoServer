@@ -1,6 +1,6 @@
 export interface IPoint {
   name: string
-  section: string
+  section?: string
   date: Date
   hour: Date
 }

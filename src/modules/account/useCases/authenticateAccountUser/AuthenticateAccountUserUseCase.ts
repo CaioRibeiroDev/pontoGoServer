@@ -25,7 +25,7 @@ export class AuthenticateAccountUserUseCase {
 
   async execute ({ email, password }: IRequest) {
     const existsUser = await this.accountRepository.findUserByEmail(email)
-    if (!existsUser) throw new Error('User not does exists')
+    if (!existsUser) throw new AppError('User not does exists')
 
     const passwordMatch = await compare(password, existsUser.password)
 
